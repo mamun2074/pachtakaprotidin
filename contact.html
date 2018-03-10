@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PachTakaProtidin</title>
+
+    <!--fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Khula|Roboto|Saira+Condensed" rel="stylesheet">
+
+    <!--fontawesome-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!--Normalizer cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.0/normalize.css">
+    <!--bootsrap cdn-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+    <!--jquery ui css-->
+    <link rel="stylesheet" href="assets/css/jquery-ui.min.css">
+    <link rel="stylesheet" href="assets/css/jquery-ui.theme.min.css">
+    <!--Countdown css-->
+    <link rel="stylesheet" href="assets/css/jquery.incremental-counter.css">
+    <!--main css-->
+    <link rel="stylesheet" href="assets/css/style.css">
+
+
+</head>
+<body>
+
+<div class="menu-top">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-5 social">
+                <ul class="text-left">
+                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                    <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                </ul>
+
+            </div>
+            <div class="col-md-7 accaunt ">
+                <ul class="text-right">
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="main-menu">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 logo-area">
+                <div class="logo">
+                    <a href="index.html">Pach <Span>Taka</Span> Protidin</a>
+                </div>
+            </div>
+            <div class="col-md-8 menu-area">
+                <ul class="text-right">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                    <li><a class="active" href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--Banner area-->
+<div class="blog-banner">
+
+</div>
+
+<div class="contact-us">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="contact-us-form">
+                    <form action="">
+                        <input class="form-control" type="text" placeholder="First Name">
+                        <input class="form-control" type="text" placeholder="Last Name">
+                        <input class="form-control" type="email" placeholder="Email address">
+                        <textarea class="form-control" placeholder="Share your experience"></textarea>
+                        <button>Send us</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<!-- Google map -->
+
+<div style="overflow: hidden;" class="google-map-area">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="google-map">
+                <script src='https://maps.googleapis.com/maps/api/js?v=3.exp&key=AIzaSyA7evP9ZhezawErj8OE5k8Vbdw9g0-kBMg'>
+
+                </script>
+                <div style='overflow:hidden;'><div id='gmap_canvas' style='height:300px;width:100%;'></div><style>#gmap_canvas img{max-width:none!important;background:none!important}</style></div> <a href='https://www.add-map.net/'>google maps TRY BPO LTD </a> <script type='text/javascript' src='https://embedmaps.com/google-maps-authorization/script.js?id=560d11d49db0971855d77dd8addd2dbda413477c'></script><script type='text/javascript'>function init_map(){var myOptions = {zoom:18,center:new google.maps.LatLng(23.8557569,90.40376900000001),mapTypeId: google.maps.MapTypeId.ROADMAP};map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);marker = new google.maps.Marker({map: map,position: new google.maps.LatLng(23.8557569,90.40376900000001)});infowindow = new google.maps.InfoWindow({content:'<strong>TRY BPO LTD</strong><br>Sector 1,Road 2<br>1230 Dhaka<br>'});google.maps.event.addListener(marker, 'click', function(){infowindow.open(map,marker);});infowindow.open(map,marker);}google.maps.event.addDomListener(window, 'load', init_map);</script>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<footer>
+    <div class="container">
+        <div class="footer">
+            <p>Copyright © 2018 TRY BPO LTD. All rights reserved</p>
+        </div>
+    </div>
+</footer>
+
+
+<!--Bootsrap cdn-->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</body>
+</html>
