@@ -29,11 +29,9 @@
         <div class="profile-information">
             <h2>Welcome to <span><?php echo $singleUserValue['firstName']; ?></span></h2>
             <form action="">
-                <label for="donate">Donate</label>
-                <input id="#mdp-demo" type="text" class="form-control date" placeholder="Pick the multiple dates">
+                <div name="value"  class="calender" id="mdp-demo"></div>
                 <input type="submit" value="Donate">
             </form>
-
         </div>
     </div>
 </div>

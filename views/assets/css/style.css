@@ -28,6 +28,7 @@ ol, ul {
 
 }
 
+
 a:hover{
     text-decoration: none;
     color: black;
@@ -48,7 +49,8 @@ table {
     border-spacing: 0;
 }
 
-/*------GLOBAL------*/
+/*------ Main css start------*/
+
 
 
 body{
@@ -603,10 +605,18 @@ ul.pagination li a{
     *border-right-color: #ffffff;
 }
 
-
-
-
 /*====default css style for tab profile page end ===*/
+
+
+.calender{
+    /*border:1px solid red;*/
+    width: 40%;
+    margin: auto;
+    margin-bottom:10px;
+}
+
+
+
 
 .footer{
     padding: 20px 0px;

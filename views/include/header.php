@@ -23,6 +23,8 @@
 
     <link rel="stylesheet" href="../assets/css/jquery-ui.multidatespicker.css">
 
+<!--    ui fornts-->
+    <link rel="stylesheet" href="../assets/css/jquery-ui-1.12.icon-font.css">
 
     <!--Countdown css-->
     <link rel="stylesheet" href="../assets/css/jquery.incremental-counter.css">
