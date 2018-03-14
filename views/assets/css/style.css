@@ -615,6 +615,14 @@ ul.pagination li a{
     margin-bottom:10px;
 }
 
+.profile-message{
+    text-align: center;
+    margin-top:10px;
+}
+.profile-message p{
+    font-size:16px;
+    color: green;
+}
 
 
 
