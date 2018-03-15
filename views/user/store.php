@@ -6,16 +6,12 @@
  * Date: 3/13/2018
  * Time: 3:38 PM
  */
-
+include_once '../../src/Admin/User/User.php';
+$users=new User();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($_POST['SignUp'] == "Sign Up") {
-        include_once '../../src/Admin/User/User.php';
-
-        $users=new User();
-
         $users->storeAllInformations($_POST);
-        echo $users->getFirstName();
-
-
     }
 }
+
+
