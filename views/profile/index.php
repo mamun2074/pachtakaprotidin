@@ -1,31 +1,39 @@
 <?php
 
 session_start();
-if (!empty($_SESSION['check'])) {
 
-    if ($_SESSION['check'] == 4) {
-        $message = 1;
-        session_unset();
-    } elseif ($_SESSION['check'] == 2) {
-        $message1 = 1;
-        session_unset();
-    }
+if (!empty($_SESSION['curentUserId'])){
+    $userId=$_SESSION['curentUserId'];
 }
+
+if(!empty($_SESSION['donationDateError'])){
+    $donationDateError=$_SESSION['donationDateError'];
+    unset($_SESSION['donationDateError']);
+}
+if(!empty($_SESSION['donationSuccessMessage'])){
+    $donationSuccessMessage=$_SESSION['donationSuccessMessage'];
+    unset($_SESSION['donationSuccessMessage']);
+}
+
 
 if (!empty($_SESSION['days'])) {
     $already_days = $_SESSION['days'];
-    session_unset();
+    unset($_SESSION['days']);
 }
 
 //    header area
 include_once '../include/header.php';
-include_once '../../src/Admin/profile/profile.php';
 
-$profile = new profile();
-$singleUserValue = $profile->showingSingleUser(1);
-$totalDonation = $profile->totalDonationSingleUser($singleUserValue['id']);
+//Valied user login
+if (!empty($userId)) {
 
-?>
+    include_once '../../src/Admin/profile/profile.php';
+
+    $profile = new profile();
+    $singleUserValue = $profile->showingSingleUser($userId);
+    $totalDonation = $profile->totalDonationSingleUser($singleUserValue['id']);
+
+    ?>
     <!--Profile Banner-->
     <div class="profile-banner-area">
         <div class="container profile-img-area">
@@ -48,8 +56,8 @@ $totalDonation = $profile->totalDonationSingleUser($singleUserValue['id']);
                 <div class="profile-message">
                     <?php
 
-                    echo (!empty($message)) ? "<p style='color: red;'>Please give your donation date</p>" : "";
-                    echo (!empty($message1)) ? "<p style='color: green;'>Thank you for donation. Please wait for confirmation</p>" : "";
+                    echo (!empty($donationDateError)) ? $donationDateError : "";
+                    echo (!empty($donationSuccessMessage)) ? $donationSuccessMessage : "";
 
                     if (!empty($already_days)) {
                         echo "<p style='color: red'>This <span style='color: green'>" . $already_days . "</span> already you donated or wait for approval</p>";
@@ -85,7 +93,8 @@ $totalDonation = $profile->totalDonationSingleUser($singleUserValue['id']);
                                                 taka</span></p>
 
                                     <?php } else { ?>
-                                        <p>Your balance is 0 . <span style="color:red">If you already donated please wait for approval</span></p>
+                                        <p>Your balance is 0 . <span style="color:red">If you already donated please wait for approval</span>
+                                        </p>
                                     <?php } ?>
 
 
@@ -144,7 +153,14 @@ $totalDonation = $profile->totalDonationSingleUser($singleUserValue['id']);
     </div>
 
     <!--Footer area -->
-<?php
+    <?php
+
+}else{
+    header('location:../user/login.php');
+}
 include_once '../include/footer.php';
 
 ?>
+
+
+

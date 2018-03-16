@@ -1,7 +1,7 @@
 <?php
 //Only donation submit
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
-    if ($_POST['submit'] == "Request for donation" && (!empty($_POST['days']))) {
+    if ($_POST['submit'] == "Request for donation" and (!empty($_POST['days']))) {
         include_once '../../src/Admin/profile/profile.php';
         $day = $_POST['days'];
         $id = $_POST['id'];
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             $check = $profile->singleUserDonation($id, $total_donation, $day);
             if (!empty($check)) {
                 session_start();
-                $_SESSION['check'] = 2;
+                $_SESSION['donationSuccessMessage'] = "<p style='color: green;'>Thank you for donation. Please wait for confirmation</p>";
                 header('Location: index.php');
             } else {
                 session_start();
@@ -40,7 +40,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
     } else {
         session_start();
-        $_SESSION['check'] = 4;
+        $_SESSION['donationDateError'] = "<p style='color: red;'>Please give your donation date</p>";
         header('Location: index.php');
     }
 

@@ -11,6 +11,7 @@ $users=new User();
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($_POST['SignUp'] == "Sign Up") {
         $users->storeAllInformations($_POST);
+        $users->storeSignupValuesInDatabase();
     }
 }
 

@@ -71,7 +71,7 @@ class profile
             $pdo = new PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
             $query="SELECT `donation_date` FROM `donation_lists` where `donation_date`  LIKE :donationDate and `user_id`=:id";
             $stmt = $pdo->prepare($query);
-            $value=$stmt->execute(array(
+            $stmt->execute(array(
                 ':donationDate' => "%" . $donateDate . "%",
                 ':id'=> $userId,
             ));

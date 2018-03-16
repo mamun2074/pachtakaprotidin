@@ -117,7 +117,7 @@ class User
 
         if (!empty($values['confirmPassword'])) {
             $confirmPassword = $values['confirmPassword'];
-            $_SESSION['confirmPasswordValue']=$confirmPassword;
+            $_SESSION['confirmPasswordValue'] = $confirmPassword;
             if ($pass === $confirmPassword) {
                 $this->password = $pass;
 
@@ -182,6 +182,50 @@ class User
             echo 'Error: ' . $e->getMessage();
         }
     }
+
+//    insert user signup information
+
+    public function storeSignupValuesInDatabase()
+    {
+
+        if (!empty($this->firstName) and !empty($this->lastName) and !empty($this->userName) and !empty($this->email) and !empty($this->password)) {
+            try {
+                $pdo = new PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
+                $query = "INSERT INTO `users`(`firstName`, `lastName`, `userName`, `email`, `user_pass`) VALUES (:firstName ,:lastName,:userName,:email,:password)";
+                $stmt = $pdo->prepare($query);
+                $stmt->execute(array(
+                    ':firstName' => $this->firstName,
+                    ':lastName' => $this->lastName,
+                    ':userName' => $this->userName,
+                    ':email' => $this->email,
+                    ':password' => $this->password,
+                ));
+
+                $userCurrentId = $pdo->lastInsertId();
+                if ($stmt->rowCount()) {
+                    session_start();
+                    $_SESSION['curentUserId'] = $userCurrentId;
+                    $_SESSION['successfullyCreateMassage'] = "Successfully Create your account";
+                    header('Location: ../../views/profile/index.php');
+                } else {
+                    session_start();
+                    $_SESSION['storeErrorMessage']="Something went wrong.";
+                    header('Location: ../../views/user/create.php');
+                }
+
+            } catch (PDOException $e) {
+                echo "Error:" . $e->getMessage();
+
+            }
+
+
+        }
+    }
+
+//    public function userLogin($loginInformations){
+//
+//
+//    }
 
 
 }

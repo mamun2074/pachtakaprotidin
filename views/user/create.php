@@ -45,7 +45,6 @@ if (!empty($_SESSION['userNameValoue'])) {
     unset($_SESSION['userNameValoue']);
 }
 
-
 if (!empty($_SESSION['emailError'])) {
     $emailError=$_SESSION['emailError'];
     unset($_SESSION['emailError']);
@@ -59,7 +58,6 @@ if (!empty($_SESSION['emailValoue'])) {
     $emailValoue = $_SESSION['emailValoue'];
     unset($_SESSION['emailValoue']);
 }
-
 
 if (!empty($_SESSION['password'])) {
     $password=$_SESSION['password'];
@@ -88,7 +86,6 @@ if (!empty($_SESSION['matchPasswordError'])) {
     $matchPasswordError=$_SESSION['matchPasswordError'];
     unset($_SESSION['matchPasswordError']);
 }
-
 
 ?>
 
