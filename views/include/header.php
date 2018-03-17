@@ -7,6 +7,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PachTakaProtidin</title>
 
+<!--    Table plugin cdn-->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css">
     <!--fonts -->
     <link href="https://fonts.googleapis.com/css?family=Khula|Roboto|Saira+Condensed" rel="stylesheet">
 
@@ -23,7 +25,7 @@
 
     <link rel="stylesheet" href="../assets/css/jquery-ui.multidatespicker.css">
 
-<!--    ui fornts-->
+    <!--    ui fornts-->
     <link rel="stylesheet" href="../assets/css/jquery-ui-1.12.icon-font.css">
 
     <!--Countdown css-->
@@ -46,9 +48,32 @@
             </div>
             <div class="col-md-7 accaunt ">
                 <ul class="text-right">
-                    <li><a href="login.html">Login</a></li>
-                    <li><a href="signup.html">Sign Up</a></li>
-                    <li><a href="profile.html">Profile</a></li>
+
+                    <?php
+
+                    if ($_SERVER['PHP_SELF'] == "/pachtakaprotidin/views/user/login.php") {
+                        ?>
+
+                        <li><a href="../user/login.php">Login</a></li>
+                        <li><a href="../user/create.php">Sign Up</a></li>
+                        <?php
+                    } elseif ($_SERVER['PHP_SELF'] == "/pachtakaprotidin/views/user/create.php") {
+                        ?>
+
+                        <li><a href="../user/login.php">Login</a></li>
+                        <li><a href="../user/create.php">Sign Up</a></li>
+
+                        <?php
+                    } else {
+
+                        ?>
+
+                        <li><a href="../profile/index.php">Profile</a></li>
+                        <li><a href="../user/logout.php">Logout</a></li>
+                        <?php
+                    }
+                    ?>
+
                 </ul>
             </div>
         </div>

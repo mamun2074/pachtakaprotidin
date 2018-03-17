@@ -9,11 +9,11 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
         $profile = new profile();
         $flag = false;
         $alreayHavedays=array();
-        foreach ($days as $day) {
+        foreach ($days as $findday) {
 //            Finding date
-            $value = $profile->searchDonationDate($id, $day);
+            $value = $profile->searchDonationDate($id, $findday);
             if (!empty($value)) {
-                $alreayHavedays[]=$day;
+                $alreayHavedays[]=$findday;
                 $flag = true;
             }
         }

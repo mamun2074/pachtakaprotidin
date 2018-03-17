@@ -512,7 +512,7 @@ ul.pagination li a{
     margin-bottom:30px;
 }
 .profile-information h2 span{
-    color: red;
+    color: green;
     text-transform: uppercase;
     font-weight: bold;
 }
@@ -543,6 +543,7 @@ ul.pagination li a{
 .profile-details-area{
     background-color: #DFF9FB;
     padding-bottom:50px;
+    padding-top:50px;
 }
 .profile-details > h1{
     margin-bottom:30px;
@@ -623,6 +624,30 @@ ul.pagination li a{
     font-size:16px;
     color: green;
 }
+
+/*Admin special action*/
+.approval-ara{
+    padding: 30px 0px;
+}
+.approval-ara h1{
+    margin-bottom:15px;
+}
+
+/*Table plugin*/
+table.dataTable.no-footer{
+    border-bottom: 1px solid rgba(0,0,0,.1);
+
+}
+
+table.dataTable thead th, table.dataTable thead td {
+    border-bottom: 1px solid transparent;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    border: 1px solid rgba(0,0,0,.1);
+    outline: none;
+}
+
 
 
 

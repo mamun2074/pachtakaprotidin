@@ -83,5 +83,28 @@ class profile
         }
     }
 
+    public function unApproveDoantion(){
+
+        try {
+            $pdo = new PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
+            $query="SELECT  users.id ,users.userName , donation_lists.donation , donation_lists.donation_date ,donation_lists.create_at
+FROM users
+INNER JOIN donation_lists
+ON donation_lists.status=0";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute(array());
+            return  $stmt->fetchall();
+
+        } catch (PDOException $e) {
+            echo 'Error: ' . $e->getMessage();
+
+        }
+
+
+    }
+
+
+
+
 
 }

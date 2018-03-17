@@ -186,6 +186,7 @@ if (!empty($_SESSION['matchPasswordError'])) {
 
                         <input type="submit" value="Sign Up" name="SignUp">
                     </form>
+                    <p style="color: black; margin-top:10px;">If you have already account <a style="color: white; margin-left:2px;" href="login.php">login </a></p>
                 </div>
             </div>
         </div>

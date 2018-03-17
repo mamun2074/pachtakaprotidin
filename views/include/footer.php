@@ -13,9 +13,16 @@
 <script src="../assets/js/jquery-ui.js"></script>
 <script src="../assets/js/jquery-ui.multidatespicker.js"></script>
 
+
+<!--js date table plugin-->
+<script src="https://cdn.datatables.net/v/dt/dt-1.10.16/datatables.min.js"></script>
 <script type="text/javascript">
 
     $('#mdp-demo').multiDatesPicker();
+
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
 
 </script>
 

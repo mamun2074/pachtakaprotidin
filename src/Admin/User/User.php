@@ -209,7 +209,7 @@ class User
                     header('Location: ../../views/profile/index.php');
                 } else {
                     session_start();
-                    $_SESSION['storeErrorMessage']="Something went wrong.";
+                    $_SESSION['storeErrorMessage'] = "Something went wrong.";
                     header('Location: ../../views/user/create.php');
                 }
 
@@ -222,10 +222,45 @@ class User
         }
     }
 
-//    public function userLogin($loginInformations){
-//
-//
-//    }
+    public function userLogin($loginInformations)
+    {
+
+        try {
+            $pdo = new PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
+            $query = "SELECT `id`,`userName`,`password` FROM `users` WHERE `userName`=:userName   and `password`=:password";
+            $stmt = $pdo->prepare($query);
+            $stmt->execute(array(
+                ':userName' => $loginInformations['userName'],
+                ':password' => $loginInformations['password'],
+            ));
+
+            $values = $stmt->fetch();
+
+            if (!empty($values)) {
+                session_start();
+                $_SESSION['curentUserId'] = $values['id'];
+                header('Location: ../../views/profile/index.php');
+            } else {
+                session_start();
+                $_SESSION['invalidUser'] = '<p style="color: red;text-align: center; font-weight:bold;">User Name &amp; Password does not match</p>';
+                header('Location: ../../views/user/login.php');
+            }
+
+
+        } catch (PDOException $e) {
+            echo "Error" . $e->getMessage();
+        }
+
+    }
+
+    public function userLogout()
+    {
+        session_start();
+        unset($_SESSION['curentUserId']);
+        unset($_SESSION['passwordValue']);
+        $_SESSION['thankYou']='<p style="color: green;text-align: center; font-weight:bold;">Thank you for giving your time</p>';
+        header('Location: ../../views/user/login.php');
+    }
 
 
 }
