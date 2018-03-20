@@ -6,6 +6,13 @@
  * Time: 4:43 PM
  */
 
+//include_once '../../Src/Admin/User/User.php';
+
+include_once '../../vendor/autoload.php';
+
+use App\Admin\User\User;
+$user = new User();
+
 if ($_SERVER['REQUEST_METHOD'] == "POST") {
     if ($_POST['login'] == "login") {
 
@@ -28,8 +35,6 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
         if (!empty($_POST['userName']) and !empty($_POST['password'])) {
 
-            include_once '../../src/Admin/User/User.php';
-            $user = new User();
             $user->userLogin($_POST);
         }
 

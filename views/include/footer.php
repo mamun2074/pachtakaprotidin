@@ -24,6 +24,10 @@
         $('#example').DataTable();
     } );
 
+
+
+
+
 </script>
 
 </body>

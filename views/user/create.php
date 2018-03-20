@@ -195,6 +195,8 @@ if (!empty($_SESSION['matchPasswordError'])) {
 
 <?php
 
+
+
 include_once '../include/footer.php';
 
 ?>

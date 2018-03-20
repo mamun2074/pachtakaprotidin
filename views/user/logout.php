@@ -6,7 +6,11 @@
  * Time: 1:20 PM
  */
 
-include_once '../../src/Admin/User/User.php';
+
+include_once '../../Src/Admin/User/User.php';
+
+use App\Admin\User\User;
+
 $user = new User();
 $user->userLogout();
 

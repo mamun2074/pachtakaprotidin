@@ -7,6 +7,9 @@
  * Date: 3/13/2018
  * Time: 4:20 PM
  */
+
+namespace App\Admin\User;
+
 class User
 {
     private $id = '';
@@ -150,7 +153,7 @@ class User
     private function findRegisterUser($userName)
     {
         try {
-            $pdo = new PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
+            $pdo = new \PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
             $query = "SELECT `userName` FROM `users` WHERE `userName` = :userName";
             $stmt = $pdo->prepare($query);
             $stmt->execute(array(
@@ -160,7 +163,7 @@ class User
             $result = $stmt->fetch();
             return $result;
 
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         }
     }
@@ -168,7 +171,7 @@ class User
     private function findRegisterEmail($userEmail)
     {
         try {
-            $pdo = new PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
+            $pdo = new \PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
             $query = "SELECT `email` FROM `users` WHERE `email` = :emailName";
             $stmt = $pdo->prepare($query);
             $stmt->execute(array(
@@ -178,7 +181,7 @@ class User
             $result = $stmt->fetch();
             return $result;
 
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo 'Error: ' . $e->getMessage();
         }
     }
@@ -190,7 +193,7 @@ class User
 
         if (!empty($this->firstName) and !empty($this->lastName) and !empty($this->userName) and !empty($this->email) and !empty($this->password)) {
             try {
-                $pdo = new PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
+                $pdo = new \PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
                 $query = "INSERT INTO `users`(`firstName`, `lastName`, `userName`, `email`, `user_pass`) VALUES (:firstName ,:lastName,:userName,:email,:password)";
                 $stmt = $pdo->prepare($query);
                 $stmt->execute(array(
@@ -206,14 +209,14 @@ class User
                     session_start();
                     $_SESSION['curentUserId'] = $userCurrentId;
                     $_SESSION['successfullyCreateMassage'] = "Successfully Create your account";
-                    header('Location: ../../views/profile/index.php');
+                    header('Location: ../../views/Profile/index.php');
                 } else {
                     session_start();
                     $_SESSION['storeErrorMessage'] = "Something went wrong.";
                     header('Location: ../../views/user/create.php');
                 }
 
-            } catch (PDOException $e) {
+            } catch (\PDOException $e) {
                 echo "Error:" . $e->getMessage();
 
             }
@@ -226,7 +229,7 @@ class User
     {
 
         try {
-            $pdo = new PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
+            $pdo = new \PDO('mysql:host=localhost;dbname=pachtakaprotidin', 'root', '');
             $query = "SELECT `id`,`userName`,`password` FROM `users` WHERE `userName`=:userName   and `password`=:password";
             $stmt = $pdo->prepare($query);
             $stmt->execute(array(
@@ -239,7 +242,7 @@ class User
             if (!empty($values)) {
                 session_start();
                 $_SESSION['curentUserId'] = $values['id'];
-                header('Location: ../../views/profile/index.php');
+                header('Location: ../../views/Profile/index.php');
             } else {
                 session_start();
                 $_SESSION['invalidUser'] = '<p style="color: red;text-align: center; font-weight:bold;">User Name &amp; Password does not match</p>';
@@ -247,7 +250,7 @@ class User
             }
 
 
-        } catch (PDOException $e) {
+        } catch (\PDOException $e) {
             echo "Error" . $e->getMessage();
         }
 
