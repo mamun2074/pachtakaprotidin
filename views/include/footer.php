@@ -24,11 +24,30 @@
         $('#example').DataTable();
     } );
 
-
-
-
-
 </script>
+
+
+<!--countdown js-->
+<script src="../assets/js/jquery.incremental-counter.min.js"></script>
+<script>
+    $(function () {
+        $(".incremental-counter").incrementalCounter({
+            'digits' : 5,
+        });
+
+    });
+</script>
+
+<!--Jquery ui js-->
+<script src="../assets/js/jquery-ui.min.js"></script>
+<script>
+    $(function () {
+        $("#tab").tabs();
+
+    });
+</script>
+
+
 
 </body>
 </html>

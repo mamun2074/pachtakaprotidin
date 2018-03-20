@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
 <head>
@@ -65,13 +64,21 @@
                         <li><a href="../user/create.php">Sign Up</a></li>
 
                         <?php
-                    } else {
+                    } elseif($_SERVER['PHP_SELF']=="/pachtakaprotidin/views/home/index.php") {
 
                         ?>
 
+                        <li><a href="../user/login.php">Login</a></li>
+                        <li><a href="../user/create.php">Sign Up</a></li>
+
+                        <?php
+                    }else{
+                        ?>
                         <li><a href="../profile/index.php">Profile</a></li>
                         <li><a href="../user/logout.php">Logout</a></li>
+
                         <?php
+
                     }
                     ?>
 
@@ -85,12 +92,12 @@
         <div class="row">
             <div class="col-md-4 logo-area">
                 <div class="logo">
-                    <a href="index.html">Pach <Span>Taka</Span> Protidin</a>
+                    <a href="../home/index.php">Pach <Span>Taka</Span> Protidin</a>
                 </div>
             </div>
             <div class="col-md-8 menu-area">
                 <ul class="text-right">
-                    <li><a href="index.html">Home</a></li>
+                    <li><a href="../home/index.php">Home</a></li>
                     <li><a href="blog.html">Blog</a></li>
                     <li><a href="contact.html">Contact</a></li>
                 </ul>
