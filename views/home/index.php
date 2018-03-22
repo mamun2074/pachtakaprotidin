@@ -1,8 +1,21 @@
 <?php
 include_once '../include/header.php';
 include_once '../../vendor/autoload.php';
-//use App\Admin\Home\Home;
-//new Home();
+
+use App\Admin\Doner\Doner;
+
+$donerInfo = new Doner();
+$donerInfos = $donerInfo->totalDoner();
+$doners = count($donerInfos);
+$donated = $donerInfo->totalDonated();
+$todaysdonated = $donerInfo->todaysDonated();
+
+$todasTotalDonatin = count($todaysdonated) * 5;
+
+//echo "<pre>";
+//print_r();
+//die();
+
 ?>
     <!--Slider area-->
     <div class="slider-area">
@@ -61,7 +74,7 @@ include_once '../../vendor/autoload.php';
     <div class="donation-area">
         <div class="container">
             <div class="header-title">
-                <h1>DONATION <span>STATICS</span></h1>
+                <h1>DONATION <span>statistics </span></h1>
             </div>
             <div class="tabs-section">
                 <div id="tab">
@@ -71,18 +84,67 @@ include_once '../../vendor/autoload.php';
                         <li><a href="#tabs-3">Total Doner</a></li>
                     </ul>
                     <div id="tabs-1">
-                        <div class="incremental-counter" data-value="100"><img src="assets/images/taka.png" alt=""></div>
+                        <div class="incremental-counter" data-value="<?php echo $donated['SUM(`donation`)']; ?>"><img
+                                    src="../assets/images/taka.png" alt=""></div>
                     </div>
                     <div id="tabs-2">
-                        <div class="incremental-counter" data-value="100"><img src="assets/images/taka.png" alt=""></div>
+                        <div class="incremental-counter" data-value="<?php echo $todasTotalDonatin; ?>"><img
+                                    src="../assets/images/taka.png" alt=""></div>
                     </div>
                     <div id="tabs-3">
-                        <div class="incremental-counter" data-value="10"><img src="assets/images/people.png" alt=""></div>
+                        <div class="incremental-counter" data-value="<?php echo $doners; ?>"><img
+                                    src="../assets/images/people.png" alt=""></div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="donar-list">
+        <div class="container">
+            <div class="header-title">
+                <h1>Doner <span>Information</span></h1>
+            </div>
+
+            <table id="donarInformation" class="display" style="width:100%">
+                <thead>
+                <tr>
+                    <th>Full Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Joining Date</th>
+                    <th>Total Donation</th>
+                    <th>Profile Status</th>
+
+                </tr>
+                </thead>
+                <tbody>
+
+                <tr>
+                    <td>Md Al-Mahmud</td>
+                    <td>mamun120520@gmail.com</td>
+                    <td>Khilkhet Dhaka</td>
+                    <td>02/03/2018</td>
+                    <td> 1250</td>
+                    <td class="bg-primary text-center">Active</td>
+                </tr>
+                <tr>
+                    <td>Duke Costa</td>
+                    <td>duke.costa@gmail.com</td>
+                    <td>Kuril flyover</td>
+                    <td>02/03/2018</td>
+                    <td> 1250</td>
+                    <td  class="bg-danger text-center">Inactive</td>
+                </tr>
+
+
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
 <?php
 
 include_once '../include/footer.php';

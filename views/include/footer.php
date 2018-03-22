@@ -24,6 +24,10 @@
         $('#example').DataTable();
     } );
 
+    $(document).ready(function () {
+       $('#donarInformation').DataTable();
+    });
+
 </script>
 
 

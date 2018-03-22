@@ -152,7 +152,7 @@ body{
     text-align: center;
     font-weight: bold;
     font-family: 'Khula', sans-serif;
-    
+
 
 }
 .header-title h1 span{
@@ -538,7 +538,6 @@ ul.pagination li a{
     padding: 6px 15px;
     border: 1px solid transparent;
     text-transform: uppercase;
-
 }
 .profile-details-area{
     background-color: #DFF9FB;
@@ -553,8 +552,6 @@ ul.pagination li a{
     font-size:18px;
     margin-bottom:10px;
 }
-
-
 
 /*====default css style for tab Profile page start ===*/
 .tabs-left > .nav-tabs {
@@ -608,7 +605,6 @@ ul.pagination li a{
 
 /*====default css style for tab Profile page end ===*/
 
-
 .calender{
     /*border:1px solid red;*/
     width: 40%;
@@ -636,7 +632,6 @@ ul.pagination li a{
 /*Table plugin*/
 table.dataTable.no-footer{
     border-bottom: 1px solid rgba(0,0,0,.1);
-
 }
 
 table.dataTable thead th, table.dataTable thead td {
@@ -648,7 +643,11 @@ table.dataTable thead th, table.dataTable thead td {
     outline: none;
 }
 
+/*Donar information*/
+.donar-list {
+    padding: 10px 0px;
 
+}
 
 
 .footer{
