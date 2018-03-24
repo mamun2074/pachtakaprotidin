@@ -12,9 +12,15 @@ $todaysdonated = $donerInfo->todaysDonated();
 
 $todasTotalDonatin = count($todaysdonated) * 5;
 
+
+use App\Admin\Profile\Profile;
+
+$profileInfo = new Profile();
+
 //echo "<pre>";
-//print_r();
+//print_r($singleTotalDonation);
 //die();
+
 
 ?>
     <!--Slider area-->
@@ -115,36 +121,27 @@ $todasTotalDonatin = count($todaysdonated) * 5;
                     <th>Joining Date</th>
                     <th>Total Donation</th>
                     <th>Profile Status</th>
-
                 </tr>
                 </thead>
                 <tbody>
-
-                <tr>
-                    <td>Md Al-Mahmud</td>
-                    <td>mamun120520@gmail.com</td>
-                    <td>Khilkhet Dhaka</td>
-                    <td>02/03/2018</td>
-                    <td> 1250</td>
-                    <td class="bg-primary text-center">Active</td>
-                </tr>
-                <tr>
-                    <td>Duke Costa</td>
-                    <td>duke.costa@gmail.com</td>
-                    <td>Kuril flyover</td>
-                    <td>02/03/2018</td>
-                    <td> 1250</td>
-                    <td  class="bg-danger text-center">Inactive</td>
-                </tr>
-
+                <?php foreach ($donerInfos as $donerInfo) {
+//                    This method from Profile class
+                    $singleTotalDonation = $profileInfo->totalDonationSingleUser($donerInfo['id']);
+                    ?>
+                    <tr>
+                        <td><?php echo $donerInfo['firstName'] . " " . $donerInfo['lastName']; ?></td>
+                        <td><?php echo $donerInfo['email']; ?></td>
+                        <td><?php echo(!empty($donerInfo['address']) ? $donerInfo['address'] : ''); ?></td>
+                        <td><?php echo $donerInfo['create_at']; ?></td>
+                        <td> <?php echo $singleTotalDonation['SUM(`donation`)']; ?></td>
+                        <td class="bg-primary text-center"><?php echo(($donerInfo['user_status'] == 1) ? 'Active' : 'Inactive'); ?></td>
+                    </tr>
+                <?php } ?>
 
                 </tbody>
             </table>
-
         </div>
     </div>
-
-
 <?php
 
 include_once '../include/footer.php';

@@ -13,7 +13,7 @@ class Doner
     public function totalDoner(){
         try{
             $pdo=new \PDO('mysql:host=localhost;dbname=pachtakaprotidin','root','');
-            $query="SELECT * FROM `users` WHERE `user_status`=1";
+            $query="SELECT `id`,`firstName`,`lastName`,`email`,`address`,`create_at` ,`user_status` FROM `users` WHERE `user_status`=1";
             $stmt=$pdo->prepare($query);
             $stmt->execute();
             $values=$stmt->fetchAll();
@@ -53,9 +53,7 @@ class Doner
         }catch (\PDOException $e){
             echo "Error".$e->getMessage();
         }
-
     }
-
 
 
 }
